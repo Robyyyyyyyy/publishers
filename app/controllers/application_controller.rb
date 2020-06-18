@@ -70,6 +70,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_ability
+    Rails.logger.info("Here's some info for ya remote_ip = #{request.remote_ip}  request.ip = #{request.ip}")
     @current_ability ||= Ability.new(current_user, request.remote_ip)
   end
 
